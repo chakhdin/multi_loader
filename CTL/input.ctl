@@ -1,0 +1,16 @@
+LOAD DATA 
+APPEND
+   INTO TABLE TMP_TRANSACTION_INPUTS
+   FIELDS TERMINATED BY ',' TRAILING NULLCOLS
+   (
+	BLOCK_HEADER_REF filler,
+	BLOCK_TRANSACTION_REF,
+	TRANSACTION_INPUT_REF,
+	INPUT_INDEX,
+	PREV_OUT_HASH,
+	PREV_OUT_INDEX,
+	SIG_SCRIPT_SIZE,
+	SEQUENCE,
+	BSIG_SCRIPT CHAR(4000)
+	)
+--sqlldr.exe userid=btc_user/btc_user@fiatdev direct=true control=../input.ctl log=../log/input.log bad=input.bad
